@@ -1,0 +1,382 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+nav{
+background-color:white;
+ box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+ position: relative;
+ z-index: 100;
+
+}
+nav ul{
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+nav li{
+    height: 50px;
+
+}
+  nav a{  padding: 0 30px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-size: larger;
+
+}
+nav a:hover{
+    background-color: #f0f0f0;
+
+
+}
+nav li:first-child{
+    margin-right: auto;
+}
+.sidebar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.397);
+    backdrop-filter: blur(10px);
+    box-shadow: -10px 0px 10px rgba(0,0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.sidebar li{
+    width: 100%;
+}
+.sidebar a{
+    width: 100%;
+}
+ @media(max-width:800px){
+    .hideonmobile{
+        display: none;
+    }
+ }
+ .carosal{
+margin-top: -50px;
+width: 100vw;
+height: 100vh;
+overflow: hidden;
+margin-top: -50px;
+
+ }
+ .carosal .list .items{
+    position: absolute;
+top: 0;
+left: 0;
+bottom: 0;
+right: 0;
+ }
+ .carosal .list .items img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+ }
+ .carosal .list .items .content{
+    position: absolute;
+    top: 20%;
+    width: 1140px;
+    max-width: 80%;
+    left: 50%;
+    transform: translate(-50%);
+    padding-right: 30%;
+    box-sizing: border-box;
+    color: #f0f0f0;
+    box-shadow: 0 5px 10px #0004;
+ }
+ .carosal .list .items .content .author{
+    font-weight: bold;
+    letter-spacing: 5px;
+    font-size: xx-large;
+
+ }
+ .carosal .list .items .content .title
+ .carosal .list .items .content .topic{
+    font-weight: bold;
+    font-size: 5px;
+    font-style: 1.3em;
+ }
+ .carosal .list .items .content .title{
+    color: chocolate;
+ }
+ .carosal .list .items .content .buttons{
+    display: grid;
+    grid-template-columns: repeat(2,130px);
+    grid-template-rows: 40px;
+    gap: 5px;
+    margin-top: 20px;
+ }
+ .carosal .list .items .content buttons{
+border: none;
+background-color: white;
+letter-spacing: 3px;
+font-family: poppins;
+font-weight: 500;
+
+ }
+ .carosal .list .items .content button:nth-child(2){
+    background-color: transparent;
+    color: #eee;
+    border: 1px solid #eee;
+ }
+ 
+ /*thumbnail*/
+ .thumbnail{
+    position: absolute;
+bottom: 50px;
+left: 50%;
+width: max-content;
+z-index: 100;
+display: flex;
+gap: 20px;
+ }
+.thumbnail .items{
+    width: 150px;
+    height: 220px;
+    flex-shrink: 0;
+    position: relative;
+}
+.thumbnail .items img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+
+}
+.thumbnail .items .content{
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+}
+.thumbnail .items .content .title{
+    font-weight: bold;
+}
+
+.arrow{
+    position: absolute;
+    top: 80%;
+    right: 52%;
+    width: 300px;
+    max-width: 30%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+}
+.arrow button{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: black;
+    border: none;
+    font-family: monospace;
+    color: #fff;
+    font-weight: bold;
+    font-size: large;
+    transition: 0.5s;
+    z-index: 100;
+
+}
+.arrow button:hover{
+    background-color: #eee;
+    color: #555;
+}
+.carosal .list .items:nth-child(1){
+    z-index: 1;
+}
+.carosal .list .items:nth-child(1) .author
+{
+    transform: translateY(50px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showcontent 0.5s linear 1 forwards;
+    
+}
+.carosal .list .items:nth-child(1) .title
+{
+    transform: translateY(50px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showcontent 0.5s linear 1 forwards;
+    
+}
+.carosal .list .items:nth-child(1) .topic
+{
+    transform: translateY(50px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showcontent 0.5s linear 1 forwards;
+    
+}
+.carosal .list .items:nth-child(1) .des
+{
+    transform: translateY(50px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showcontent 0.5s linear 1 forwards;
+    
+}
+
+
+@keyframes showcontent{
+    to{
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
+}
+.carosal .list .items:nth-child(1).title{
+    animation-delay: 1.2s;
+}
+.carosal .list .items:nth-child(1).topic{
+    animation-delay: 1.4s;
+}
+.carosal .list .items:nth-child(1).des{
+    animation-delay: 1.6s;
+}
+.carosal .list .items:nth-child(1).buttons{
+    animation-delay: 1.8s;
+}
+
+
+.carosal.next .list .items:nth-child(1) img{
+    width: 150px;
+    height: 220px;
+    position: absolute;
+    left: 50%;
+    bottom: 50px;
+    border-radius: 20px;
+    animation: showImage 0.5s linear 1 forwards;
+
+}
+@keyframes showImage{
+    to{
+        width: 100%;
+        height: 100%;
+        left: 0;
+        bottom: 0;
+        border-radius: 0;
+
+    }
+}
+.carosal.next .list .items:nth-last-child(1){
+    width: 0;
+    overflow: hidden;
+    animation: showThumbnail .5s linera 1 forwards;
+
+}
+@keyframes showThumbnail{
+    to{
+        width: 150px;
+
+    }
+}
+.carosal.next .thumbnail{
+    transform: translate(150px);
+    animation: transformThumbnail .5s linear 1 forwards;
+}
+@keyframes transformThumbnail {
+    to{
+        transform: translate(0);
+    }
+    
+}
+.carosal.prev .list .items:nth-child(2){
+    z-index: 2;
+
+
+}
+.carosal.prev .list .items:nth-child(2) img{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: outImage .5s linear 1 forwards;
+
+}
+@keyframes outImage {
+    to{
+        width: 150px;
+        height: 220px;
+        border-radius: 20px;
+        left: 50%;
+        bottom: 50px;
+    }
+    
+}
+.carosal.prev .thumbnail .items:nth-child(1){
+    width: 0;
+    overflow: hidden;
+    opacity: 0;
+    animation: showThumbnail .5s linear 1 forwards;
+}
+.carosal.prev .list .items:nth-child(2) .author
+.carosal.prev .list .items:nth-child(2) .title
+.carosal.prev .list .items:nth-child(2) .topic
+.carosal.prev .list .items:nth-child(2) .des
+.carosal.prev .list .items:nth-child(2) .buttons{
+    animation: contentOut 0.5s linear 1 forwards;
+}
+@keyframes contentOut {
+    to{
+        transform: translate(-150px);
+        filter: blur(20px);
+        opacity: 0;
+    }
+    
+}
+.carosal.next .arrow button,
+.carosal.prev .arrow button{
+    pointer-events: none;
+}
+/*time*/
+.time{
+    width: 0%;
+    height: 5px;
+    background-color: orange;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+
+}
+.carosal.next .time,
+.carosal.prev .time{
+    width: 100%;
+    animation: timerunning 2s linear 1 forwards;
+}
+@keyframes timerunning {
+    to{
+        width: 0;
+    }
+    
+}
+@media screen and (max-width:670px){
+    .carosal .list .items .content{
+        padding-right: 0;
+
+    }
+    .carosal .list .items .content .title{
+        font-size: 30px;
+    }
+}
